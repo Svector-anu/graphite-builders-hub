@@ -1,197 +1,202 @@
-# 🚀 Graphite Builders Hub
+# Graphite Builders Hub
 
-**The official starter kit for developers building trust-first dApps on the Graphite Network**
+The official starter kit for developers building **trust-first dApps** using the Graphite Network.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen)](https://nodejs.org/)
 [![Web3.js](https://img.shields.io/badge/Web3.js-Compatible-blue)](https://web3js.org/)
 
----
+##  What is Graphite Builders Hub?
 
-## 🎯 What is Graphite Builders Hub?
+Graphite Builders Hub is your gateway to building decentralized applications with built-in trust and reputation systems. Instead of treating all users equally, your dApps can make intelligent decisions based on verified identity and trust scores.
 
-Graphite Builders Hub is your launchpad for building decentralized apps powered by **trust, reputation**, and **identity verification** using the Graphite Network.
+**What makes this special?**
+-  **Trust-First Architecture**: Build dApps that know who they're dealing with
+-  **KYC Integration**: Seamless identity verification without sacrificing decentralization  
+-  **Reputation Systems**: Leverage trust scores for better user experiences
+-  **Ready-to-Use**: Pre-built examples and utilities to get you started immediately
 
-Instead of treating every user the same, your dApp can react to **trust scores**, **KYC status**, and more — all securely and on-chain.
+##  Who is this for?
 
-### ✅ Why use this?
+- **New blockchain developers** looking to build more sophisticated dApps
+- **Hackathon builders** who want to stand out with trust-based features
+- **Development teams** exploring KYC and compliance use cases
+- **Web3 developers** familiar with ethers.js, viem, or Web3.js who want to level up
 
-* 🔐 **Trust-First Architecture** – Stop building for wallets, start building for people.
-* 📇 **KYC & Identity** – Tap into verified user data without storing it yourself.
-* 📊 **Reputation Scores** – Build apps that reward good behavior.
-* ⚙️ **Works out-of-the-box** – Real examples + ready GraphiteClient SDK
-
----
-
-## 👥 Who is this for?
-
-This repo is perfect for:
-
-* 🧱 **New blockchain devs** exploring real-world use cases
-* ⚡ **Hackathon builders** looking to stand out
-* 🧠 **Experienced Web3.js / ethers / viem users** curious about trust dApps
-* 🧑‍💼 **Project teams** building with KYC, compliance, or risk engines
-
----
-
-## 🧱 Project Structure
+## 📁 Project Structure
 
 ```
 graphite-builders-hub/
-├── GraphiteClient.js           # Core Graphite SDK wrapper
+├── src/
+│   └── GraphiteClient.js          # Core client for Graphite Network
 ├── examples/
-│   ├── lending-app.js          # dApp: Trust-based lending approval
-│   ├── marketplace-app.js      # dApp: Verified seller listings
-│   └── coming-soon/           # (Optional space for new dApps)
-├── .env.example                # Safe config template
-├── package.json               # Includes Web3.js + Graphite plugin
-├── README.md                  # This file
-└── CONTRIBUTING.md            # (Optional) Contribution guide
+│   ├── lending-app.js             # Trust-based lending demo
+│   └── marketplace-app.js         # Seller verification demo
+├── .env.example                   # Pre-configured environment template
+├── package.json                   # Dependencies and scripts
+└── README.md                      # You are here!
 ```
 
----
+### Core Components
 
-## ⚡ How to Use It
+- **`GraphiteClient.js`**: A reusable client powered by Web3.js and @atgraphite/web3-plugin
+- **Lending App Example**: Demonstrates trust-based loan approvals and risk assessment
+- **Marketplace App Example**: Shows seller verification with dynamic trust scores
+- **Environment Setup**: Pre-configured with Graphite RPC and API endpoints
 
-### Option 1: Clone and Run (Best for learning/testing)
+##  Quick Start
+
+### Option 1: Clone and Run (Recommended for Learning)
 
 ```bash
-git clone https://github.com/Svector-anu/graphite-builders-hub.git
+# Clone the repository
+git clone https://github.com/your-org/graphite-builders-hub.git
 cd graphite-builders-hub
 
 # Install dependencies
 npm install
 
-# Copy the example environment file
+# Set up environment variables
 cp .env.example .env
-# Fill in your API keys and settings inside .env
+# Edit .env with your API keys (instructions included in file)
 
-# Run lending example
-date node examples/lending-app.js
+# Run the lending app example
+node examples/lending-app.js
 
-# Run marketplace example
+# Run the marketplace app example  
 node examples/marketplace-app.js
 ```
 
-### Option 2: Build Your Own (Start fresh using our SDK)
+### Option 2: Build From Scratch (For New Projects)
 
 ```bash
-mkdir my-trust-dapp && cd my-trust-dapp
+# Create your new project
+mkdir my-graphite-dapp
+cd my-graphite-dapp
+
+# Initialize npm project
 npm init -y
-npm install web3 dotenv @atgraphite/web3-plugin
 
-# Then copy our GraphiteClient
-curl -O https://raw.githubusercontent.com/Svector-anu/graphite-builders-hub/main/GraphiteClient.js
+# Install required dependencies
+npm install web3 @atgraphite/web3-plugin dotenv
 
-# Copy and edit the environment config
-curl -O https://raw.githubusercontent.com/Svector-anu/graphite-builders-hub/main/.env.example
-cp .env.example .env
+# Copy the GraphiteClient (you can download this file from our repo)
+curl -o GraphiteClient.js https://raw.githubusercontent.com/your-org/graphite-builders-hub/main/src/GraphiteClient.js
+
+# Create your environment file
+curl -o .env.example https://raw.githubusercontent.com/your-org/graphite-builders-hub/main/.env.example
+cp .env
 ```
 
-Now start building your own trust-first dApp using the SDK and sample logic.
+## 🔧 Environment Setup
 
----
-
-## 🔐 .env Configuration
+Your `.env` file should include:
 
 ```env
-# Graphite Network
-GRAPHITE_RPC_URL=https://rpc.graphite.network
-GRAPHITE_API_URL=https://api.graphite.network
-GRAPHITE_API_KEY=your_api_key_here
-```
+# # Wallet configuration
+PRIVATE_KEY=your_private_key_here
 
-Add contract addresses if needed:
+# Graphite network endpoints
+GRAPHITE_NODE_URL=https://anon-entrypoint-1.atgraphite.com
+GRAPHITE_API_URL=https://api.main.atgraphite.com/api
 
-```env
+
+# Optional: Custom contract addresses
 LENDING_CONTRACT_ADDRESS=0x...
 MARKETPLACE_CONTRACT_ADDRESS=0x...
 ```
 
----
+##  Learning Examples
 
-## 🧪 Example Use Cases
+### 1. Trust-Based Lending App
 
-### ✅ Lending App (Risk assessment)
-
-```js
+```javascript
+// Run: node examples/lending-app.js
 const graphite = new GraphiteClient();
-const borrower = await graphite.getUser("0x123...");
 
-if (borrower.trustScore > 700) {
-  console.log("✅ Loan Approved");
+// Check borrower's trust score before approving loan
+const borrower = await graphite.getUser('0x...');
+if (borrower.trustScore > 750) {
+    // Approve loan with favorable terms
+    console.log('✅ Loan approved - high trust score');
 } else {
-  console.log("⚠️ Loan Denied – Low trust score");
+    // Request additional collateral or deny
+    console.log('⚠️ Additional verification required');
 }
 ```
 
-### 🛍 Marketplace App (Seller verification)
+### 2. Marketplace with Seller Verification
 
-```js
+```javascript  
+// Run: node examples/marketplace-app.js
 const graphite = new GraphiteClient();
-const seller = await graphite.getUser("0xabc...");
+
+// Verify seller before listing expensive items
+const seller = await graphite.getUser('0x...');
 const isVerified = await graphite.isKYCVerified(seller.address);
 
 if (isVerified && seller.trustScore > 600) {
-  console.log("✅ Verified seller - Listing allowed");
+    console.log('✅ Verified seller - can list high-value items');
 } else {
-  console.log("❌ Not eligible to list high-value items");
+    console.log('📝 Basic seller - limited to small transactions');
 }
 ```
 
----
+##  Learning Goals
 
-## 🎯 Learning Goals
+By working through this starter kit, you'll learn:
 
-By completing this starter kit, you’ll understand:
+- **Trust Integration**: How to query and use trust scores in your dApp logic
+- **KYC Verification**: Implementing identity checks without storing personal data
+- **Risk Assessment**: Building algorithms that adapt to user reputation
+- **Web3 Best Practices**: Clean patterns for blockchain application development
+- **Graphite Network**: Understanding the trust layer and its capabilities
 
-* ✅ How to use `GraphiteClient.js` in your own projects
-* 🔍 How to fetch trust data, scores, and KYC verification
-* 🛠 How to build dApps that adapt to real users
-* 📦 How to safely manage `.env` configs for live deployments
 
----
 
-## 🧑‍💻 Contributing
+##  Contributing
 
-Want to help improve this hub?
+We welcome contributions! Here's how to get involved:
 
-1. Fork this repo
-2. Create a feature branch
-3. Make your changes
-4. Submit a Pull Request!
+1. **Fork** the repository
+2. **Create** a feature branch: `git checkout -b feature/amazing-feature`
+3. **Add** your example or improvement
+4. **Test** your changes with both example apps
+5. **Commit** with clear messages: `git commit -m 'Add: new trust scoring example'`
+6. **Push** to your branch: `git push origin feature/amazing-feature`
+7. **Open** a Pull Request
 
-Ideas:
+### Contribution Ideas
 
-* 🧪 Add new trust-based dApp examples (social media, gaming, etc.)
-* 🧰 Add more helper functions/utilities
-* 📖 Write tutorials or walkthroughs
+-  **New Example Apps**: Gaming with reputation, social platforms, DeFi protocols
+-  **Documentation**: Tutorials, guides, API reference improvements  
+-  **Developer Tools**: Testing utilities, debugging helpers, deployment scripts
+-  **Integrations**: Support for other Web3 libraries, framework adapters
 
----
+##  Requirements
 
-## 📋 Requirements
+- **Node.js** 16.0.0 or higher
+- **npm** or **yarn** package manager
+- **Basic Web3 knowledge** (transactions, wallets, smart contracts)
+- **an activated graphite account** 
 
-* Node.js 16+
-* NPM or Yarn
-* Basic Web3 knowledge (wallets, txs)
-* Graphite API key → [https://graphite.network/api](https://graphite.network/api)
+##  Support & Community
 
----
+- 📖 **Documentation**: [https://docs.atgraphite.com/](https://docs.atgraphite.com/)
+- 💬 **Discord**: [Join our community](https://discord.gg/k6kNNeQGv7)
+-  **Telegram**: [Join our Builders hub](https://t.me/+Fwq1LXJqf2Q1ZWE0)
+-    **Issues**: [GitHub Issues](https://github.com/Svector-anu/graphite-builders-hub/issues)
+- 📧 **Email**: support@graphite.com
 
-## 🧠 Resources
 
-* 📚 Docs: [https://docs.graphite.network](https://docs.graphite.network)
-* 💬 Community: [https://discord.gg/graphite](https://discord.gg/graphite)
-* 🧑‍💻 API Keys: [https://graphite.network/api](https://graphite.network/api)
+  Acknowledgments
 
----
-
-## 🪪 License
-
-MIT © 2025 – [Svector](https://github.com/Svector-anu)
-
----
-
-**Ready to build trust-first dApps?** Start cloning or start coding 🧠
+- Built on the robust foundation of **Web3.js**
+- Powered by **Graphite Network**'s trust infrastructure
+- Inspired by the amazing **Web3 developer community**
 
 ---
+
+**Want help, updates, or to connect with other builders?** [👉 Join the Graphite Developer Community on Telegram](https://t.me/+Fwq1LXJqf2Q1ZWE0) and start building! 
+
+*Have questions? Join our [Discord community](https://discord.gg/k6kNNeQGv7) or check out our [documentation](https://docs.atgraphite.com/).*
